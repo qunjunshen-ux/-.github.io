@@ -3,150 +3,154 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>沈群鈞 | 數位履歷</title>
+    <title>沈群鈞 SHEN QUN JUN | 數位履歷</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <style>
-        /* 1. 基礎設定與平滑捲動 */
+        /* --- 基礎設定與平滑捲動 --- */
         html { scroll-behavior: smooth; }
         :root {
             --main-blue: #005a9c;
             --accent-blue: #4a90e2;
-            --light-bg: #f5faff;
+            --light-bg: #f8fbff;
             --white: #ffffff;
-            --text-dark: #2c3e50;
+            --text-dark: #2d3748;
+            --gray-text: #718096;
         }
 
         body { 
             background-color: var(--light-bg);
             color: var(--text-dark);
-            margin: 0;
-            padding: 0;
-            line-height: 1.7;
+            margin: 0; padding: 0;
+            line-height: 1.8;
             font-family: 'PingFang TC', 'Microsoft JhengHei', sans-serif;
         }
 
-        /* 2. 導覽列 (Sticky Navigation) */
+        /* --- 頂部導覽列 (Sticky Nav) --- */
         .nav-bar {
-            position: -webkit-sticky; /* 支援 Safari */
-            position: sticky;
-            top: 0;
-            background: rgba(255, 255, 255, 0.9);
+            position: sticky; top: 0;
+            background: rgba(255, 255, 255, 0.95);
             backdrop-filter: blur(10px);
             padding: 15px 0;
             text-align: center;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-            z-index: 9999;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            z-index: 1000;
         }
         .nav-bar a {
-            margin: 0 12px;
+            margin: 0 15px;
             text-decoration: none;
             color: var(--main-blue);
-            font-weight: bold;
-            font-size: 0.9rem;
+            font-weight: 700;
+            font-size: 0.95rem;
             transition: 0.3s;
         }
         .nav-bar a:hover { color: var(--accent-blue); }
 
-        /* 3. 頁首設計 */
+        /* --- 頁首 Header --- */
         header {
-            padding: 50px 20px;
+            padding: 60px 20px;
             text-align: center;
             background: var(--white);
-            border-bottom: 1px solid #e0e0e0;
+            border-bottom: 1px solid #edf2f7;
         }
         .profile-img {
-            width: 130px;
-            height: 130px;
+            width: 140px; height: 140px;
             border-radius: 50%;
-            border: 5px solid var(--light-bg);
+            border: 4px solid var(--light-bg);
             object-fit: cover;
             margin-bottom: 20px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+            background: #eee;
         }
-        h1 { margin: 10px 0; color: var(--main-blue); letter-spacing: 2px; }
-        .subtitle { 
-            background: #e3f2fd; 
-            color: var(--main-blue); 
-            padding: 5px 15px; 
-            border-radius: 20px; 
-            display: inline-block;
-            font-size: 0.9rem;
-            font-weight: 600;
+        h1 { margin: 10px 0; color: var(--main-blue); font-size: 2.2rem; letter-spacing: 2px; }
+        .subtitle-tag { 
+            background: #e3f2fd; color: var(--main-blue); 
+            padding: 6px 20px; border-radius: 50px; 
+            display: inline-block; font-weight: 600; font-size: 0.9rem;
         }
 
-        /* 4. 容器與卡片佈局 */
-        .container { max-width: 800px; margin: 30px auto; padding: 0 20px; }
+        /* --- 容器與卡片 --- */
+        .container { max-width: 850px; margin: 40px auto; padding: 0 20px; }
         .card {
             background: var(--white);
-            border-radius: 12px;
-            padding: 30px;
-            margin-bottom: 25px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
-            scroll-margin-top: 80px; /* 重要：防止被導覽列遮住標題 */
+            border-radius: 16px;
+            padding: 40px;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.02);
+            scroll-margin-top: 90px; /* 防止導覽列遮擋標題 */
         }
         h2 { 
             color: var(--main-blue); 
-            border-left: 5px solid var(--main-blue); 
-            padding-left: 12px; 
-            margin-bottom: 20px;
-            font-size: 1.3rem;
+            font-size: 1.5rem;
+            border-left: 6px solid var(--main-blue); 
+            padding-left: 15px; 
+            margin-bottom: 25px;
+            display: flex; align-items: center; gap: 10px;
         }
 
-        /* 5. 核心能力網格 */
+        /* --- 核心職能網格 --- */
         .skill-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 15px;
+            gap: 20px;
         }
         .skill-item {
-            background: #fcfdfe;
+            background: #f8fafc;
             border: 1px solid #edf2f7;
-            padding: 15px;
-            border-radius: 8px;
+            padding: 20px;
+            border-radius: 12px;
         }
-        .skill-item b { color: var(--main-blue); display: block; margin-bottom: 5px; }
+        .skill-item b { color: var(--main-blue); font-size: 1.1rem; display: block; margin-bottom: 8px; }
 
-        /* 6. 學經歷清單 */
-        .item-title { font-weight: bold; font-size: 1.1rem; display: flex; justify-content: space-between; flex-wrap: wrap; }
-        .item-sub { color: var(--accent-blue); font-size: 0.9rem; margin-bottom: 10px; font-weight: 600; }
-        ul { padding-left: 18px; margin: 10px 0; }
-        li { margin-bottom: 8px; color: #4a5568; }
+        /* --- 學經歷細節 --- */
+        .item-header { display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; margin-bottom: 5px; }
+        .item-title { font-weight: 800; font-size: 1.15rem; color: var(--text-dark); }
+        .item-date { color: var(--gray-text); font-size: 0.9rem; }
+        .item-sub { color: var(--accent-blue); font-weight: 600; margin-bottom: 10px; }
+        ul { padding-left: 20px; margin: 10px 0; }
+        li { margin-bottom: 10px; color: #4a5568; font-size: 0.95rem; }
 
-        /* 7. 證照按鈕 */
-        .btn-group { display: flex; flex-wrap: wrap; gap: 10px; }
+        /* --- 證照按鈕與分類 --- */
+        .cert-category { margin-bottom: 20px; }
+        .cert-label { font-weight: bold; color: var(--gray-text); margin-bottom: 12px; display: block; font-size: 0.9rem; }
+        .btn-group { display: flex; flex-wrap: wrap; gap: 12px; }
         .cert-btn {
-            background: white;
-            border: 1px solid var(--accent-blue);
-            color: var(--accent-blue);
-            padding: 8px 16px;
-            border-radius: 6px;
+            background: #fff;
+            border: 1px solid #cbd5e0;
+            color: var(--text-dark);
+            padding: 10px 18px;
+            border-radius: 8px;
             cursor: pointer;
             font-weight: 600;
+            font-size: 0.9rem;
             transition: 0.3s;
+            display: flex; align-items: center; gap: 8px;
         }
-        .cert-btn:hover { background: var(--accent-blue); color: white; }
+        .cert-btn:hover { 
+            border-color: var(--main-blue); 
+            color: var(--main-blue);
+            background: #f0f7ff;
+            transform: translateY(-2px);
+        }
 
-        /* 8. 證照彈出視窗 (Modal) */
+        /* --- 證照彈窗 (Modal) --- */
         .modal {
-            display: none;
-            position: fixed;
+            display: none; position: fixed;
             top: 0; left: 0; width: 100%; height: 100%;
-            background: rgba(0,0,0,0.8);
-            z-index: 10000;
-            justify-content: center;
-            align-items: center;
+            background: rgba(0,0,0,0.85); z-index: 2000;
+            justify-content: center; align-items: center;
+            backdrop-filter: blur(5px);
         }
-        .modal img { max-width: 90%; max-height: 85vh; border: 4px solid white; }
+        .modal img { max-width: 90%; max-height: 85vh; border: 5px solid white; border-radius: 5px; }
 
-        .footer { text-align: center; padding: 40px; color: #a0aec0; font-size: 0.8rem; }
+        .footer { text-align: center; padding: 60px 20px; color: var(--gray-text); font-size: 0.85rem; }
     </style>
 </head>
 <body>
 
     <nav class="nav-bar">
         <a href="#about">關於我</a>
-        <a href="#skills">核心能力</a>
-        <a href="#edu">學歷</a>
+        <a href="#skills">核心職能</a>
+        <a href="#edu">學歷背景</a>
         <a href="#exp">實務經歷</a>
         <a href="#certs">專業證照</a>
     </nav>
@@ -154,82 +158,115 @@
     <header>
         <img src="profile.jpg" alt="沈群鈞" class="profile-img">
         <h1>沈群鈞 SHEN QUN JUN</h1>
-        <div class="subtitle">數位履歷 | 工業管理與智慧製造</div>
-        <p style="margin-top:15px; color:#718096; font-size:0.9rem;">
-            <i class="fas fa-envelope"></i> danis9469@gmail.com | <i class="fas fa-phone"></i> 0911-467-173
+        <div class="subtitle-tag">數位履歷 | 智慧製造與流程優化</div>
+        <p style="margin-top:20px; color:var(--gray-text); font-size:0.95rem;">
+            <i class="fas fa-envelope"></i> danis9469@gmail.com &nbsp;&nbsp; | &nbsp;&nbsp; 
+            <i class="fas fa-phone"></i> 0911-467-173
         </p>
     </header>
 
     <div class="container">
+        
         <div class="card" id="about">
-            <h2><i class="fas fa-user"></i> 個人簡介</h2>
-            <p>我是沈群鈞，目前就讀於國立屏東科技大學工業管理碩士班。具備極佳的適應能力與危機處理意識，曾獨自完成鐵路環島旅行。專業上致力於將工業工程邏輯與數位技術結合，期望透過數據分析協助企業達成流程優化與數位轉型。</p>
+            <h2><i class="fas fa-user-circle"></i> 個人簡介</h2>
+            <p>
+                我是沈群鈞，目前就讀於屏科大工業管理系碩士班。我是一個熱愛探索且具備高度適應力的人，曾獨自完成鐵路環島旅行，這段經歷鍛鍊了我在面對突發變化時的緊急應變能力。
         </div>
 
         <div class="card" id="skills">
-            <h2><i class="fas fa-star"></i> 核心能力亮點</h2>
+            <h2><i class="fas fa-bolt"></i> 核心職能亮點</h2>
             <div class="skill-grid">
                 <div class="skill-item">
-                    <b>數位系統整合</b>
-                    熟練 SAP ERP 系統邏輯，並能運用 Python 進行數據清理與生產排程模擬。
+                    <b>數位系統導入與整合</b>
+                    掌握 SAP ERP 核心模組運算邏輯，並能透過 Python 進行製程數據分析與視覺化決策支援。
                 </div>
                 <div class="skill-item">
-                    <b>品質管理實務</b>
-                    具備 ISO 內部稽核知識，擁有海外實習之第一線品管 (IQC/IPQC/FQA) 經驗。
+                    <b>製程品質與稽核</b>
+                    具備 ISO 體系內部稽核知識，擁有海外實習之第一線品管 (IQC/IPQC/FQA) 實作經驗。
                 </div>
             </div>
         </div>
 
         <div class="card" id="edu">
             <h2><i class="fas fa-graduation-cap"></i> 教育背景</h2>
-            <div class="item-title">國立屏東科技大學</div>
-            <div class="item-sub">工業管理系 碩士班 | 2025/02 - 2027/06 (預計)</div>
+            <div class="item-header">
+                <span class="item-title">國立屏東科技大學 (NPUST)</span>
+                <span class="item-date">2025/02 - 2027/06 (預計)</span>
+            </div>
+            <div class="item-sub">工業管理系 碩士班</div>
             
-            <div class="item-title" style="margin-top:15px;">龍華科技大學</div>
-            <div class="item-sub">工業管理學系 學士 | 2020/09 - 2024/06</div>
+            <div style="margin-top: 25px;" class="item-header">
+                <span class="item-title">龍華科技大學 (LHU)</span>
+                <span class="item-date">2020/09 - 2024/06</span>
+            </div>
+            <div class="item-sub">工業管理學系 學士</div>
             <ul>
-                <li>專研 ERP 軟體應用，並擔任課程助教，展現優異的學科領導力。</li>
+                <li>在校期間專研 ERP 軟體應用，並擔任課程助教，展現學科領導力與輔導能力。</li>
             </ul>
         </div>
 
         <div class="card" id="exp">
-            <h2><i class="fas fa-briefcase"></i> 專業實務經歷</h2>
-            <div class="item-title">泰國萬泰電線電纜 (Wan Thai)</div>
-            <div class="item-sub">海外製程實習 | 2025/07 - 2025/08</div>
+            <h2><i class="fas fa-industry"></i> 專業實務經歷</h2>
+            <div class="item-header">
+                <span class="item-title">泰國萬泰電線電纜 (Wan Thai)</span>
+                <span class="item-date">2025/07 - 2025/08</span>
+            </div>
+            <div class="item-sub">研發與品質部們 | 海外實習</div>
             <ul>
-                <li>負責品質檢驗程序，確保產品符合 RoHS 與 REACH 國際環保標準。</li>
-                <li>於跨國語言環境中獨立作業，維持技術報表數據之精確性。</li>
+                <li>實地執行進料、製程與成品檢驗流程，確保產品符合國際環保法規 (RoHS/REACH)。</li>
+                <li>於跨國語言環境下維持高效作業，精準完成技術報表與品質數據對接。</li>
             </ul>
 
-            <div class="item-title" style="margin-top:15px;">中華企業資源規劃學會</div>
-            <div class="item-sub">數位轉型專案實習 | 2023/07 - 2023/08</div>
+            <div style="margin-top: 25px;" class="item-header">
+                <span class="item-title">中華企業資源規劃學會</span>
+                <span class="item-date">2023/07 - 2023/08</span>
+            </div>
+            <div class="item-sub">SAP 顧問實務 | 數位轉型專案實習</div>
             <ul>
-                <li>掌握 SAP PP/MM 模組導入邏輯，榮獲 2025 全國實務應用競賽亞軍。</li>
+                <li>掌握 SAP PP/MM/SD 模組導入邏輯，榮獲 2025 全國 ERP 實務應用競賽亞軍。</li>
+                <li>結合 IoT 感測與 RPA 技術，針對製造業痛點研發自動化數據監控解決方案。</li>
             </ul>
         </div>
 
         <div class="card" id="certs">
-            <h2><i class="fas fa-certificate"></i> 專業證照</h2>
-            <div class="btn-group">
-                <button class="cert-btn" onclick="show('iso9001.jpg')">ISO 9001 內部稽核員</button>
-                <button class="cert-btn" onclick="show('sap.jpg')">SAP ERP 應用技術師</button>
-                <button class="cert-btn" onclick="show('python.jpg')">Python MTA 專業認證</button>
+            <h2><i class="fas fa-id-card"></i> 專業證照與技能</h2>
+            
+            <div class="cert-category">
+                <span class="cert-label">程式開發認證</span>
+                <div class="btn-group">
+                    <button class="cert-btn" onclick="show('python_cert.png')">
+                        <i class="fab fa-python" style="color:#3776ab;"></i> Introduction to Programming using Python
+                    </button>
+                </div>
+            </div>
+
+            <div class="cert-category">
+                <span class="cert-label">SAP ERP 專業應用師 (三模組核可)</span>
+                <div class="btn-group">
+                    <button class="cert-btn" onclick="show('sap_pp.png')">生管模組 (Production Planning)</button>
+                    <button class="cert-btn" onclick="show('sap_fi.png')">財務模組 (Financial Accounting)</button>
+                    <button class="cert-btn" onclick="show('sap_sd.png')">配銷模組 (Sales and Distribution)</button>
+                </div>
             </div>
         </div>
+
     </div>
 
     <div id="modal" class="modal" onclick="this.style.display='none'">
-        <img id="modalImg" src="">
+        <img id="modalImg" src="" alt="證照預覽">
     </div>
 
     <div class="footer">
-        <p>© 2026 沈群鈞 SHEN QUN JUN | All Rights Reserved.</p>
+        <p>© 2026 沈群鈞 SHEN QUN JUN | 數位履歷</p>
+        <p style="font-size: 0.75rem; margin-top: 5px;">Built with HTML, CSS, and Passion.</p>
     </div>
 
     <script>
         function show(src) {
-            document.getElementById('modalImg').src = src;
-            document.getElementById('modal').style.display = 'flex';
+            const modal = document.getElementById('modal');
+            const modalImg = document.getElementById('modalImg');
+            modalImg.src = src;
+            modal.style.display = 'flex';
         }
     </script>
 </body>
