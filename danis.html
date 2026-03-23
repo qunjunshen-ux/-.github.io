@@ -24,9 +24,8 @@
             line-height: 1.8;
         }
 
-        /* 頁首設計 */
         header {
-            padding: 70px 20px;
+            padding: 60px 20px;
             text-align: center;
             background: var(--white);
             box-shadow: 0 10px 30px rgba(0, 90, 156, 0.05);
@@ -35,9 +34,9 @@
         }
 
         .profile-frame {
-            width: 160px;
-            height: 160px;
-            margin: 0 auto 25px;
+            width: 150px;
+            height: 150px;
+            margin: 0 auto 20px;
             border: 4px solid var(--white);
             border-radius: 50%;
             overflow: hidden;
@@ -47,87 +46,88 @@
 
         .profile-frame img { width: 100%; height: 100%; object-fit: cover; }
 
-        h1 { color: var(--main-blue); font-size: 2.4rem; letter-spacing: 4px; margin-bottom: 10px; }
+        h1 { color: var(--main-blue); font-size: 2.2rem; letter-spacing: 3px; margin-bottom: 5px; }
         .title-tag { 
             display: inline-block;
             background: var(--soft-blue);
             color: var(--main-blue);
-            padding: 5px 20px;
+            padding: 4px 18px;
             border-radius: 20px;
             font-weight: 600;
-            font-size: 1rem;
-            margin-bottom: 20px;
+            font-size: 0.95rem;
+            margin-bottom: 15px;
         }
 
-        .contact-info { font-size: 0.95rem; color: var(--sub-blue); }
-        .contact-info span { margin: 0 15px; }
+        .contact-info { font-size: 0.9rem; color: var(--sub-blue); }
+        .contact-info span { margin: 0 12px; }
 
-        /* 內容區塊 */
-        .container { max-width: 900px; margin: 0 auto 80px; padding: 0 20px; }
+        .container { max-width: 850px; margin: 0 auto 60px; padding: 0 20px; }
 
         .card {
             background: var(--white);
             border-radius: 16px;
-            padding: 40px;
-            margin-bottom: 30px;
+            padding: 35px;
+            margin-bottom: 25px;
             box-shadow: 0 4px 20px rgba(0,0,0,0.02);
-            position: relative;
-            transition: all 0.4s ease;
+            transition: all 0.3s ease;
         }
 
-        .card:hover { transform: translateY(-8px); box-shadow: 0 12px 30px rgba(74, 144, 226, 0.1); }
+        .card:hover { transform: translateY(-5px); box-shadow: 0 8px 25px rgba(74, 144, 226, 0.1); }
 
         h2 { 
             color: var(--main-blue); 
-            font-size: 1.5rem; 
-            margin-bottom: 25px; 
-            border-bottom: 2px solid var(--soft-blue);
-            padding-bottom: 10px;
+            font-size: 1.4rem; 
+            margin-bottom: 20px; 
+            border-left: 5px solid var(--sub-blue);
+            padding-left: 15px;
             display: flex;
             align-items: center;
-            gap: 12px;
+            gap: 10px;
         }
 
-        .section-desc { color: #666; margin-bottom: 20px; font-style: italic; }
+        /* 學歷樣式 */
+        .edu-item { margin-bottom: 20px; }
+        .edu-school { font-weight: 700; color: var(--main-blue); font-size: 1.1rem; }
+        .edu-info { display: flex; justify-content: space-between; color: var(--sub-blue); font-size: 0.95rem; font-weight: 500; margin: 4px 0; }
 
-        /* 經歷細節 */
-        .exp-item { margin-bottom: 25px; padding-left: 20px; border-left: 3px solid var(--soft-blue); }
-        .exp-title { font-weight: 700; color: var(--text-main); font-size: 1.15rem; }
-        .exp-date { color: var(--sub-blue); font-size: 0.9rem; margin-bottom: 8px; font-weight: 500; }
+        /* 經歷清單 */
+        .exp-item { margin-bottom: 25px; }
+        .exp-header { font-weight: 700; color: var(--text-main); font-size: 1.1rem; display: flex; justify-content: space-between; }
         
-        ul { list-style: none; }
-        li { margin-bottom: 8px; position: relative; padding-left: 20px; font-size: 1rem; }
-        li::before { content: "◈"; position: absolute; left: 0; color: var(--sub-blue); font-size: 0.8rem; }
+        ul { list-style: none; margin-top: 8px; }
+        li { margin-bottom: 6px; position: relative; padding-left: 20px; font-size: 0.95rem; color: #444; }
+        li::before { content: "•"; position: absolute; left: 0; color: var(--sub-blue); font-weight: bold; }
 
-        /* 互動標籤區 */
-        .tag-group { display: flex; flex-wrap: wrap; gap: 12px; }
+        /* 標籤群組 */
+        .tag-group { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 15px; }
         .cert-btn {
-            background: #fff;
-            color: var(--sub-blue);
-            border: 1px solid var(--sub-blue);
-            padding: 10px 22px;
-            border-radius: 50px;
+            background: #f0f7ff;
+            color: var(--main-blue);
+            border: 1px solid var(--soft-blue);
+            padding: 8px 16px;
+            border-radius: 8px;
             cursor: pointer;
+            font-size: 0.9rem;
             font-weight: 600;
-            transition: 0.3s;
+            transition: 0.2s;
         }
-        .cert-btn:hover { background: var(--sub-blue); color: white; transform: scale(1.05); }
+        .cert-btn:hover { background: var(--main-blue); color: white; }
 
-        /* 彈出燈箱 */
+        /* 燈箱 */
         .modal {
             display: none;
             position: fixed;
             top: 0; left: 0; width: 100%; height: 100%;
-            background: rgba(10, 30, 50, 0.9);
+            background: rgba(0, 0, 0, 0.85);
             z-index: 1000;
             justify-content: center; align-items: center;
-            backdrop-filter: blur(8px);
+            backdrop-filter: blur(5px);
         }
-        .modal-box { position: relative; max-width: 85%; max-height: 85%; }
-        .modal-box img { width: 100%; border-radius: 8px; border: 5px solid white; }
-        .close-modal { position: absolute; top: -50px; right: 0; color: white; font-size: 2.5rem; cursor: pointer; }
+        .modal-box { position: relative; max-width: 90%; max-height: 90%; text-align: center; }
+        .modal-box img { max-width: 100%; max-height: 80vh; border: 5px solid white; border-radius: 4px; }
+        .close-btn { position: absolute; top: -40px; right: 0; color: white; font-size: 2rem; cursor: pointer; }
 
-        .footer { text-align: center; padding-bottom: 50px; color: var(--sub-blue); font-size: 0.9rem; letter-spacing: 1px; }
+        .footer { text-align: center; padding-bottom: 40px; color: var(--sub-blue); font-size: 0.85rem; }
     </style>
 </head>
 <body>
@@ -147,43 +147,63 @@
 <div class="container">
 
     <div class="card">
-        <h2><i class="fas fa-paper-plane"></i> 職位意向</h2>
-        <p>致力於深耕 <strong>智慧製造</strong> 與 <strong>生產管理</strong> 領域。憑藉工業管理碩士背景，結合 SAP ERP 系統邏輯與跨國品質實務經驗，期許能協助企業推動生產流程優化與數位轉型。 </p>
+        <h2><i class="fas fa-graduation-cap"></i> 教育背景</h2>
+        <div class="edu-item">
+            <div class="edu-school">國立屏東科技大學</div>
+            <div class="edu-info">
+                <span>工業管理系 碩士班</span>
+                <span>2025/02 - 2027/06 (預計)</span>
+            </div>
+        </div>
+        <div class="edu-item">
+            <div class="edu-school">龍華科技大學</div>
+            <div class="edu-info">
+                <span>工業管理學系 學士</span>
+                <span>2020/09 - 2024/06</span>
+            </div>
+            <ul>
+                <li>修習企業資源規劃 (ERP) 核心體系，深研生產、配銷與財務模組之系統邏輯。</li>
+            </ul>
+        </div>
     </div>
 
     <div class="card">
         <h2><i class="fas fa-briefcase"></i> 專業實務經歷</h2>
         
         <div class="exp-item">
-            <div class="exp-title">海外製程實務 | 泰國萬泰電線電纜 (Wan Thai)</div>
-            <div class="exp-date">2025.07 - 2025.08</div>
+            <div class="exp-header">
+                <span>海外製程實務 | 泰國萬泰電線電纜 (Wan Thai)</span>
+                <span style="font-size: 0.85rem; color: #888;">2025/07 - 2025/08</span>
+            </div>
             <ul>
-                <li>執行全鏈路品質稽核，涵蓋入料檢驗 (IQC)、製程檢驗 (IPQC) 與最終成品確效 (FQA)。</li>
-                <li>導入國際品質標準，嚴格落實 RoHS 與 REACH 標準規範，確保產品符合全球環保法規。</li>
-                <li>展現卓越環境適應力，於英/泰/中多語環境下精準對接品質數據。</li>
+                <li>貫徹全鏈路品質稽核，執行入料 (IQC)、製程 (IPQC) 與成品 (FQA) 檢驗程序。</li>
+                <li>對標國際品質體系，嚴格落實 RoHS 與 REACH 規範，確保產線符合環境永續標準。</li>
+                <li>於跨國語言環境中獨立作業，精準對接品質監控數據與技術報表。</li>
             </ul>
         </div>
 
         <div class="exp-item">
-            <div class="exp-title">數位系統整合 | 中華企業資源規劃學會 (中央大學)</div>
-            <div class="exp-date">2023.07 - 2023.08</div>
+            <div class="exp-header">
+                <span>系統整合專案 | 中華企業資源規劃學會 (中央大學)</span>
+                <span style="font-size: 0.85rem; color: #888;">2023/07 - 2023/08</span>
+            </div>
             <ul>
-                <li>深研 SAP 五大核心模組 (SD/MM/PP/FI/CO)，專注於生產計劃與排程之優化邏輯。</li>
-                <li>推動虛實整合 (IT+OT) 專案，結合 Arduino 感測技術與 iRPA 自動化，實現即時庫存監控。</li>
-                <li>榮獲 2025 全國 ERP 實務應用競賽第二名，針對產業痛點提供高效數位解決方案。</li>
+                <li>完成 360 小時 SAP 顧問實務訓練，掌握 PP 生產計畫等五大核心模組運算邏輯。</li>
+                <li>推動虛實整合 (IT+OT) 技術研究，透過 Arduino 與 iRPA 技術實現自動化庫存數據監控。</li>
+                <li>榮獲 2025 全國 ERP 實務應用競賽第二名，針對數位轉型痛點提供具體優化策略。</li>
             </ul>
         </div>
     </div>
 
     <div class="card">
-        <h2><i class="fas fa-award"></i> 專業證照與素養</h2>
-        <p class="section-desc">點擊下方標籤，可直接檢閱專業資格認證檔：</p>
+        <h2><i class="fas fa-award"></i> 專業證照與資格</h2>
+        <p style="font-size: 0.85rem; color: #777; margin-bottom: 10px;">點擊標籤可檢閱證照正本：</p>
         <div class="tag-group">
             <button class="cert-btn" onclick="openCert('iso9001.jpg')">ISO 9001 內部稽核員</button>
             <button class="cert-btn" onclick="openCert('iso14001.jpg')">ISO 14001 內部稽核員</button>
             <button class="cert-btn" onclick="openCert('iatf16949.jpg')">IATF 16949 品質工具</button>
             <button class="cert-btn" onclick="openCert('sap_cert.jpg')">SAP ERP 應用技術師</button>
-            <button class="cert-btn" onclick="openCert('python_mta.jpg')">Python MTA 專業認證</button>
+            <button class="cert-btn" onclick="openCert('python_cert.jpg')">Python MTA 專業認證</button>
         </div>
     </div>
 
@@ -191,7 +211,7 @@
 
 <div id="certModal" class="modal" onclick="this.style.display='none'">
     <div class="modal-box" onclick="event.stopPropagation()">
-        <span class="close-modal" onclick="document.getElementById('certModal').style.display='none'">&times;</span>
+        <span class="close-btn" onclick="document.getElementById('certModal').style.display='none'">&times;</span>
         <img id="certImg" src="" alt="認證預覽">
     </div>
 </div>
