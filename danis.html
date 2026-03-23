@@ -3,146 +3,157 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>沈群鈞 | 工業管理與生產規劃專業履歷</title>
+    <title>沈群鈞 | 智慧製造與 SAP 專家</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <style>
         :root {
-            --primary-color: #2c3e50;
-            --secondary-color: #34495e;
-            --accent-color: #555;
-            --text-dark: #333;
-            --bg-gray: #f4f7f6;
+            --neon-blue: #00d4ff;
+            --dark-bg: #0a0e17;
+            --card-bg: #161b22;
+            --text-gray: #8b949e;
         }
 
-        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', 'Microsoft JhengHei', sans-serif; }
-        body { background-color: var(--bg-gray); color: var(--text-dark); line-height: 1.6; }
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Orbitron', 'Microsoft JhengHei', sans-serif; }
+        body { background-color: var(--dark-bg); color: #fff; overflow-x: hidden; }
+
+        /* 科技感背景動畫 */
+        .bg-glow {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background: radial-gradient(circle at 50% 50%, #1b2735 0%, #090a0f 100%);
+            z-index: -1;
+        }
 
         header {
-            background-color: var(--primary-color);
-            color: white;
-            padding: 60px 20px;
-            text-align: center;
+            height: 60vh; display: flex; flex-direction: column; justify-content: center; align-items: center;
+            text-align: center; background: linear-gradient(to bottom, rgba(0,212,255,0.1), transparent);
         }
 
-        .container { max-width: 900px; margin: 20px auto; padding: 20px; }
-        .card { background: white; border-radius: 4px; padding: 30px; box-shadow: 0 2px 10px rgba(0,0,0,0.05); margin-bottom: 25px; }
-        
-        h1 { font-size: 2.2rem; margin-bottom: 10px; letter-spacing: 1px; }
-        h2 { color: var(--primary-color); border-bottom: 2px solid #eee; padding-bottom: 10px; margin: 25px 0 15px; font-size: 1.4rem; }
-        h3 { color: var(--secondary-color); margin: 15px 0 5px; font-size: 1.1rem; }
+        /* 照片上傳預留區 */
+        .profile-pic {
+            width: 150px; height: 150px; border-radius: 50%;
+            border: 3px solid var(--neon-blue); box-shadow: 0 0 20px var(--neon-blue);
+            margin-bottom: 20px; overflow: hidden; background: #222;
+            display: flex; justify-content: center; align-items: center; transition: 0.5s;
+        }
+        .profile-pic:hover { transform: scale(1.1) rotate(5deg); }
+        .profile-pic img { width: 100%; height: 100%; object-fit: cover; }
 
-        .contact-info { margin-top: 10px; font-size: 0.95rem; }
-        .contact-info span { margin: 0 15px; }
+        h1 { font-size: 3rem; text-shadow: 0 0 10px var(--neon-blue); letter-spacing: 5px; }
 
-        .timeline-item { border-left: 2px solid #eee; padding-left: 20px; position: relative; margin-bottom: 20px; }
-        .timeline-item::before { content: ''; width: 8px; height: 8px; background: #999; border-radius: 50%; position: absolute; left: -5px; top: 10px; }
+        .container { max-width: 1000px; margin: -50px auto 50px; padding: 20px; }
 
-        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
+        /* 互動卡片特效 */
+        .card {
+            background: var(--card-bg); border: 1px solid #30363d; border-radius: 15px;
+            padding: 30px; margin-bottom: 30px; transition: 0.4s; position: relative;
+            overflow: hidden; cursor: pointer;
+        }
+        .card:hover {
+            border-color: var(--neon-blue); transform: translateY(-10px);
+            box-shadow: 0 0 30px rgba(0, 212, 255, 0.2);
+        }
+        .card::before {
+            content: ""; position: absolute; top: 0; left: -100%; width: 100%; height: 2px;
+            background: linear-gradient(90deg, transparent, var(--neon-blue)); transition: 0.5s;
+        }
+        .card:hover::before { left: 100%; }
+
+        h2 { color: var(--neon-blue); margin-bottom: 20px; display: flex; align-items: center; gap: 10px; }
         
-        .footer { text-align: center; padding: 30px; color: #999; font-size: 0.85rem; }
-        
-        ul { padding-left: 20px; list-style-type: square; }
-        li { margin-bottom: 4px; font-size: 0.95rem; }
-        p { font-size: 0.95rem; }
-        strong { color: #000; }
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; }
+        .tag {
+            display: inline-block; padding: 5px 15px; border: 1px solid var(--neon-blue);
+            border-radius: 20px; font-size: 0.8rem; color: var(--neon-blue); margin: 5px;
+            transition: 0.3s;
+        }
+        .tag:hover { background: var(--neon-blue); color: #000; }
+
+        /* 動態進度條 */
+        .skill-bar { height: 10px; background: #333; border-radius: 5px; margin-top: 10px; position: relative; }
+        .skill-fill { height: 100%; background: var(--neon-blue); border-radius: 5px; width: 0; transition: 2s ease-out; }
+
+        .contact-link { color: #fff; text-decoration: none; margin: 0 15px; transition: 0.3s; }
+        .contact-link:hover { color: var(--neon-blue); text-shadow: 0 0 10px var(--neon-blue); }
+
+        ul { list-style: none; }
+        li::before { content: "▹ "; color: var(--neon-blue); }
     </style>
 </head>
 <body>
 
+<div class="bg-glow"></div>
+
 <header>
-    <h1>沈群鈞 (SHEN QUN JUN)</h1>
-    <p>國立屏東科技大學 工業管理系碩士班</p>
-    <div class="contact-info">
-        <span><i class="fas fa-phone"></i> 0911-467-173</span>
-        <span><i class="fas fa-envelope"></i> danis9469@gmail.com</span>
-        <span><i class="fas fa-map-marker-alt"></i> 桃園市龜山區</span>
+    <div class="profile-pic">
+        <img src="profile.jpg" alt="請上傳照片至 GitHub">
+    </div>
+    <h1>沈群鈞</h1>
+    <p style="color: var(--text-gray); letter-spacing: 2px;">工業管理碩士 | SAP PP 顧問實習 | 跨國品質實務 [cite: 4, 33, 89]</p>
+    <div style="margin-top: 20px;">
+        <a href="tel:0911467173" class="contact-link"><i class="fas fa-phone"></i> 0911-467-173 [cite: 12]</a>
+        <a href="mailto:danis9469@gmail.com" class="contact-link"><i class="fas fa-envelope"></i> danis9469@gmail.com [cite: 13]</a>
     </div>
 </header>
 
 <div class="container">
     
-    <div class="card">
-        <h2><i class="fas fa-bullseye"></i> 職位意向</h2>
-        <p><strong>目標職位：</strong>生產管理師、工業工程師。</p>
-        <p>具備工業管理碩士專業背景，專攻 SAP ERP 系統應用與智慧製造整合。擁有跨國實務實習經驗，致力於運用數據分析與流程優化提升工廠營運效率。</p>
-    </div>
-
-    <div class="card">
-        <h2><i class="fas fa-graduation-cap"></i> 教育背景</h2>
-        <div class="timeline-item">
-            <h3>國立屏東科技大學</h3>
-            <p>工業管理系碩士班 | 2025/02 - 2027/06 (就讀中)</p>
-        </div>
-        <div class="timeline-item">
-            <h3>龍華科技大學</h3>
-            <p>工業管理學系 | 2020/09 - 2024/06 (畢業)</p>
-            <ul>
-                <li>修習企業資源規劃 (ERP) 核心課程，掌握生產、配銷與財務模組邏輯。</li>
-            </ul>
-        </div>
-    </div>
-
-    <div class="card">
-        <h2><i class="fas fa-industry"></i> 實務經歷</h2>
-        
-        <div class="timeline-item">
-            <h3>海外實務實習 | 泰國萬泰電線電纜 (Wan Thai)</h3>
-            <p><strong>2025/07 - 2025/08</strong></p>
-            <ul>
-                <li><strong>品質控管實務：</strong>參與 IQC 入料檢驗、IPQC 製程檢驗及 FQA 成品檢驗完整流程。</li>
-                <li><strong>規範執行：</strong>落實 RoHS 及 REACH 等國際環保與品質標準規範。</li>
-                <li><strong>跨文化溝通：</strong>於多語言環境中與異國團隊協作，確保生產品質數據準確對接。</li>
-            </ul>
-        </div>
-
-        <div class="timeline-item">
-            <h3>SAP 顧問實習 | 中華企業資源規劃學會 (中央大學)</h3>
-            <p><strong>2023/07 - 2023/08 (360小時實習訓練)</strong></p>
-            <ul>
-                <li><strong>模組應用：</strong>系統性學習 SAP SD、MM、PP、FI、CO 五大模組操作。</li>
-                <li><strong>數位整合：</strong>運用 Arduino 感測技術與 iRPA 流程自動化，實現生產數據與 ERP 系統即時同步。</li>
-                <li><strong>專案成果：</strong>模擬科技廠 SAP 系統導入，針對庫存管理痛點提出優化對策，獲 2025 ERP 競賽第二名。</li>
-            </ul>
-        </div>
-
-        <div class="timeline-item">
-            <h3>學海築夢專案 | 德國旅遊公司實習</h3>
-            <p><strong>2022/01 - 2022/02</strong></p>
-            <ul>
-                <li>跨國實務交流，培養海外獨立生活管理與應變能力。</li>
-            </ul>
-        </div>
-    </div>
-
-    <div class="card">
-        <h2><i class="fas fa-check-circle"></i> 專業證照與技能</h2>
+    <div class="card" onclick="activateSkills()">
+        <h2><i class="fas fa-microchip"></i> 核心技術領域 </h2>
         <div class="grid">
             <div>
-                <h3>專業證照</h3>
-                <ul>
-                    <li>ISO 9001:2015 / 14001 / 45001 內部稽核員</li>
-                    <li>ISO IATF 16949 品質管理五大工具證照</li>
-                    <li>ERP 軟體應用技術師 (生管/配銷/財務)</li>
-                    <li>生產與作業管理技術師</li>
-                </ul>
+                <p>SAP ERP 系統導入 (PP/MM/SD) [cite: 36, 133]</p>
+                <div class="skill-bar"><div class="skill-fill" style="width: 90%;"></div></div>
             </div>
             <div>
-                <h3>資訊工具</h3>
-                <ul>
-                    <li>SAP ERP / 鼎新 ERP 系統操作</li>
-                    <li>Python 程式撰寫 (MTA 認證)</li>
-                    <li>iRPA 流程自動化工具應用</li>
-                    <li>IoT 感測元件 (Arduino) 整合應用</li>
-                </ul>
+                <p>IT+OT 虛實整合 (Arduino/iRPA) [cite: 87, 138]</p>
+                <div class="skill-bar"><div class="skill-fill" style="width: 85%;"></div></div>
             </div>
+        </div>
+    </div>
+
+    <div class="card">
+        <h2><i class="fas fa-globe-americas"></i> 跨國實務經驗 [cite: 88, 105]</h2>
+        <div class="timeline-item">
+            <h3>泰國萬泰電線電纜 (Wan Thai) - 品管實習 [cite: 88]</h3>
+            <p>2025.07 - 2025.08 [cite: 88]</p>
+            <ul>
+                <li>負責 IQC/IPQC/FQA 全流程品質監控 [cite: 90, 107]。</li>
+                <li>執行 RoHS/REACH 國際標準規範 [cite: 90, 108]。</li>
+                <li>在英/泰/中多語環境下進行生產數據協作 [cite: 91, 110]。</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="card">
+        <h2><i class="fas fa-trophy"></i> 專案成就 [cite: 125]</h2>
+        <h3>2025 全國 ERP 實務應用競賽 - 第二名 [cite: 126, 128]</h3>
+        <p>開發基於 IoT 的自動化庫存監控系統，成功優化企業帳料一致性 [cite: 138]。</p>
+        <div style="margin-top: 15px;">
+            <span class="tag">ISO 9001/14001/45001 [cite: 153, 154, 156]</span>
+            <span class="tag">IATF 16949 [cite: 155]</span>
+            <span class="tag">Python [cite: 152]</span>
         </div>
     </div>
 
 </div>
 
-<div class="footer">
-    <p>&copy; 2026 沈群鈞 - 工業管理專業數位履歷</p>
-</div>
+<footer style="text-align: center; padding: 50px; color: var(--text-gray); font-size: 0.8rem;">
+    <p>&copy; 2026 SHEN QUN JUN | DIGITAL RESUME V2.0 [cite: 18]</p>
+</footer>
+
+<script>
+    // 進入網頁時自動觸發進度條動畫
+    window.onload = function() {
+        const fills = document.querySelectorAll('.skill-fill');
+        fills.forEach(fill => {
+            const targetWidth = fill.style.width;
+            fill.style.width = '0';
+            setTimeout(() => {
+                fill.style.width = targetWidth;
+            }, 500);
+        });
+    };
+</script>
 
 </body>
 </html>
